@@ -14,12 +14,14 @@
 } */
 
 .issue{
-    font-size: 13px !important;
+    font-size: 11px !important;
     /* border: 3px solid orange; */
     padding: 7px 10px ;
     border-radius: 20px;
     margin: 5px;
     font-weight: bold;
+    width: auto;
+    height: auto;
     
 }
 

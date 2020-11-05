@@ -1,37 +1,34 @@
-import React, { Component } from 'react'
+
+import React, { useEffect, useState } from 'react'
 import Issue from '../issue/Issue'
+import Time from "../time/Time"
 import "./IssueList.css"
 
-export default class IssueList extends Component {
-    constructor(){
-        super()
-        this.state ={
-            issues:[]
-        }
-    }
+export default function IssueList() {
+    const [issues, setIssues] = useState([]);
 
-    loadIssues = ()=> {
+    const loadIssues = ()=> {
         fetch("https://api.github.com/repos/facebook/create-react-app/issues")
             .then(res => res.json())
             .then(data => {
-                this.setState({
-                    issues: data
-                })
+                setIssues(data)
             })
     }
 
-    componentDidMount(){
-        this.loadIssues()
-    }
+    useEffect(()=>{
+        loadIssues()
+    }, [])
 
-    render() {
+    
         return (
             <div className="IssueList container">
                 {/* <Issue /> */}
-                { this.state.issues.map((issue, index) => {
-                    return <Issue key={issue.id} issueData={issue}/>
+                { issues.map((issue, index) => {
+                    return <div>
+                        <Issue key={issue.id} issueData={issue}/>
+                        {/* <Time key={issue.id} issueData={issue}/> */}
+                    </div>
                 }) }
             </div>
         )
     }
-}
