@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, Route, Switch, useHistory } from 'react-router-dom';
+import { Link, NavLink, Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
 import IssueList from './components/issueList/IssueList';
 import IssueByNumber from "./components/issueByNumber/IssueByNumber"
+import Users from './components/users/Users';
+import UserInfoById from './components/UserInfoById/UserInfoById';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -18,9 +20,10 @@ function App() {
   return (
     <>
     <ul>
-        <li><Link to="/">Home</Link></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/users">User Search</NavLink></li>
         { loggedIn && (
-          <li><Link to="/issues">Issues</Link></li>
+          <li><NavLink to="/issues">Issues</NavLink></li>
         )}
         { loggedIn
           ? (<li><button onClick={() => {setLoggedIn(false)}}>Log Out</button></li>)
@@ -34,6 +37,8 @@ function App() {
         </Route>
         <Route path="/issues/:number" component={IssueByNumber} />
         <Route path="/issues" component={IssueList}/>
+        <Route path="/users" component={Users} />
+        <Route path="/users/:login" component={UserInfoById} />
       
         
       
