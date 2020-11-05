@@ -20,9 +20,14 @@
     border-radius: 20px;
     margin: 5px;
     font-weight: bold;
-    width: auto;
+    width: auto !important;
     height: auto;
     
+}
+
+.block-container{
+    display: flex;
+    justify-content: left;
 }
 
 /* .comment{

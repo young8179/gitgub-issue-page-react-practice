@@ -1,0 +1,10 @@
+.content-box{
+    border: 1px solid black;
+    /* border-radius: 40px; */
+    /* width: 70%; */
+}
+
+.top-head{
+    height: 40px;
+    background-color: lightgray;
+}

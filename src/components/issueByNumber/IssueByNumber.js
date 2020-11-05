@@ -1,7 +1,8 @@
-
+import "./IssueByNumber.css"
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
+import moment from 'moment';
 
 export default function IssueByNumber() {
     const { number } = useParams();
@@ -23,14 +24,32 @@ export default function IssueByNumber() {
         <>
             <h1>Iussues By Number</h1>
             { issues && (
-            <div className="text-center">
-                <img src={issues.user.avatar_url} style={{height: "300px"}}className="align-self-start mr-3" alt="..."/>
-                <div className="media-body">
-                    <h3>{issues.title}</h3>
-                    <h5 className="mt-0">{issues.number}</h5>
-                    <ReactMarkdown source={issues.body} />
-                    <a href={issues.url}>Issues Link</a>
+            <div className="container">
+                <div className="row  justify-content-center">
+                    <div className="col-12 text-center mb-5">
+                            <h1>{issues.title} {issues.number}</h1>
+                    </div>
+                   <div className="col-12 content-box">
+                        
+                        <div className="row top-head">
+                            <pre className="p-2"><b>{issues.user.login}</b>   {moment(issues.created_at).fromNow()}</pre>
+                        </div>
+                        <div className="row">
+                            <div className="">
+                                <img src={issues.user.avatar_url} style={{height: "300px"}} className="" alt="..."/>
+                                <div className="">
+                                    <h3>{issues.title} {issues.number}</h3>
+                                    
+                                    <ReactMarkdown source={issues.body} />
+                                    <a href={issues.url}>Issues Link</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
 
             )}
