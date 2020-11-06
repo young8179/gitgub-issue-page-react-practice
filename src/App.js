@@ -36,9 +36,10 @@ function App() {
           <h1>Home</h1>
         </Route>
         <Route path="/issues/:number" component={IssueByNumber} />
-        <Route path="/issues" component={IssueList}/>
-        <Route path="/users" component={Users} />
+        <Route path="/issues" exact component={IssueList}/>
         <Route path="/users/:login" component={UserInfoById} />
+        <Route path="/users" exact component={Users} />
+        
       
         
       
