@@ -13,10 +13,10 @@ export default function UserCard(props) {
             <div className="profile-details">
                 <h3 className="mt-0 login"><NavLink to={`/users/${login}`}>{login}</NavLink></h3>
                 <ul>
-                    <li><b>Account Type</b>{type}</li>
-                    <li><b>blog</b>{blog}</li>
-                    <li><b>email</b>{email}</li>
-                    <li><b>bio</b>{bio}</li>
+                    <li><b>Account Type: </b>{type}</li>
+                    <li><b>blog: </b>{blog} </li>
+                    <li><b>email: </b>{email}</li>
+                    <li><b>bio: </b>{bio}</li>
                 </ul>
             </div>
             

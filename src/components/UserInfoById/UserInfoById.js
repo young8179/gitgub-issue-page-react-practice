@@ -20,19 +20,22 @@ export default function UserInfoById() {
 
     return (
         <>
-            <h1>hello</h1>
-            { user && (
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">{user.login}</li>
-                { user.bio !== null ? (<li class="list-group-item">{user.bio}</li>) : ""}
-                { user.company == null ?  "" : <li class="list-group-item">{user.company}</li>}
-                { user.website !== null ? (<li class="list-group-item">{user.website}</li>) : ("")}
-                { user.location !== null ? (<li class="list-group-item">{user.location}</li>) :( "")}
-                { user.email !== null ? (<li class="list-group-item">{user.email}</li>) :( "")}
-                
-          </ul>
+            <div className="container">
+                <h1>User Info</h1>
+                { user && (
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Id: {user.login}</li>
+                    { user.bio !== null ? (<li class="list-group-item">About: {user.bio}</li>) : ""}
+                    { user.company !== null ? ( <li class="list-group-item">Company: {user.company}</li>) : ("") }
+                    { user.blog !== "" ? (<li class="list-group-item">Blog: {user.blog}</li>) : ("")}
+                    { user.location !== null ? (<li class="list-group-item">Location: {user.location}</li>) :( "")}
+                    { user.email !== null ? (<li class="list-group-item">Email: {user.email}</li>) :( "")}
+                    
+                </ul>
 
-            )}
+                    )}
+            </div>
+
         </>
     )
 }
