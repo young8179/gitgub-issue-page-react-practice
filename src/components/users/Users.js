@@ -72,7 +72,7 @@ export default function Users() {
                 <div className="col-12 mt-5">
                     
                     { users.map((user)=>{
-                        return <UserCard user={user}/>
+                        return <UserCard key={user.id} user={user}/>
                     })}
                 </div>
 
